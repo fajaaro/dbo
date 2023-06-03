@@ -14,4 +14,4 @@
 4. docker-compose up -d
 
 # API Documentation
-https://docs.google.com/document/d/1zBs-0lsFwfyMnmANLVkrM3hTshukTxJT-MIs0aBQP_Y/edit#heading=h.dfykvjg6hm2l
+https://docs.google.com/document/d/1C3MMXeE2MUgOGp6X4q6sMWdGBj7fjIrPZu7XZoikL5c/edit?usp=sharing
