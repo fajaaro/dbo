@@ -7,11 +7,18 @@ import (
 	"github.com/fajaaro/dbo/app/controllers"
 	"github.com/fajaaro/dbo/app/migrations"
 	"github.com/fajaaro/dbo/app/routers"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	// Load environment variables from .env file
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file:", err)
+	}
+
 	db := app.InitDb()
-	err := migrations.AutoMigrate(db)
+	err = migrations.AutoMigrate(db)
 	if err != nil {
 		log.Fatal(err)
 	}

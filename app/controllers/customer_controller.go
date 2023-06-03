@@ -243,6 +243,17 @@ func (repo *CustomerRepo) DeleteCustomer(c *gin.Context) {
 		return
 	}
 
+	// Delete customer's orders
+	result = repo.DB.Where("customer_id = ?", customerID).Delete(&models.Order{})
+	if result.Error != nil {
+		errorMsg := result.Error.Error()
+		res.Success = false
+		res.Error = &errorMsg
+		c.JSON(http.StatusInternalServerError, res)
+		return
+	}
+
+	// Delete customer
 	result = repo.DB.Delete(&customer)
 	if result.Error != nil {
 		errorMsg := result.Error.Error()
